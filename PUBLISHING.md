@@ -31,7 +31,10 @@ git push -u origin main
 ## 3. Prüfen und Release erstellen
 
 - Den Workflow unter **Actions → Validate** prüfen.
-- Vor einer stabilen Veröffentlichung die Installation und eine Nachricht in Home Assistant testen.
+- Installation über HACS und Popup-Versand aus Home Assistant 2026.10.4 an ein
+  Cisco CP-9971 sind erfolgreich geprüft; der Empfang wurde am Telefon bestätigt.
+  Dieser Test steht für Version 1.0.0 nicht mehr aus. Bei funktionalen Änderungen
+  den betroffenen Versand- oder Installationsweg erneut prüfen.
 - Ein GitHub-Release mit Tag `v1.0.0` erstellen; die Integrationsversion steht im Manifest.
 - Den Text aus `CHANGELOG.md` als Release-Beschreibung verwenden und auf den bisherigen Testumfang hinweisen.
 
