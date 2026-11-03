@@ -9,5 +9,8 @@
 - Verarbeitung von Antworten unabhängig vom HTTP-Charset.
 - Deutsche und englische Oberflächentexte.
 
-Testumfang: lokale Protokolltests; der entsprechende HTTP-Push wurde separat auf
-einem CP-9971 getestet. Ein vollständiger HA-Installationstest steht noch aus.
+Bestätigter Teststand (2026-11-03): Installation über HACS, Einrichtung über
+Geräte & Dienste, erfolgreiches Laden und Popup-Versand aus Home Assistant 2026.10.4
+an ein Cisco CP-9971. Der Empfang wurde am Telefon bestätigt. Umlaute,
+Zeilenumbrüche und XML-Sonderzeichen wurden zusätzlich direkt am Telefon geprüft.
+Lokale Protokolltests decken simulierte Erfolgs- und Fehlerantworten ab.
