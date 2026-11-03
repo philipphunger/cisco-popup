@@ -6,10 +6,12 @@ Ein Tastendruck am Telefon ist nicht erforderlich.
 
 ## Kompatibilität
 
-Für das Cisco CP-9971 entwickelt. Der zugrunde liegende HTTP/XML-Push wurde auf
-einem CP-9971 erfolgreich mit einem separaten PowerShell-Skript getestet.
-Die Integration selbst ist noch nicht in einer laufenden Home-Assistant-Installation
-verifiziert. Andere Modelle und Firmwareversionen sind nicht getestet.
+Erfolgreich mit einem Cisco CP-9971 unter Home Assistant **2026.10.4** getestet.
+Bestätigt sind die Installation über HACS, die Einrichtung über Geräte & Dienste
+und der direkte Popup-Versand über `cisco_popup.send_message`. Der Empfang auf dem
+Telefon wurde bestätigt. Umlaute, Zeilenumbrüche und XML-Sonderzeichen wurden
+zusätzlich mit direkten Popup-Nachrichten am Telefon geprüft.
+Andere Modelle und Firmwareversionen sind nicht getestet.
 Eine FRITZ!Box kann die Telefonie übernehmen; sie ist am Popup-Versand nicht beteiligt.
 
 ## Voraussetzungen
@@ -32,13 +34,18 @@ HTTP überträgt Nachrichten und Basic-Auth unverschlüsselt im lokalen Netz.
 2. Home Assistant neu starten.
 3. **Einstellungen → Geräte & Dienste → Integration hinzufügen → Cisco Popup** öffnen.
 4. Telefon-IP und Zugangsdaten eingeben.
-5. Unter **Werkzeuge / Entwicklerwerkzeuge → Aktionen** eine Testnachricht senden.
+5. In einer Automation die Aktion `cisco_popup.send_message` verwenden.
+   Eine Testnachricht unter **Werkzeuge / Entwicklerwerkzeuge → Aktionen** ist optional.
 
 ## HACS: benutzerdefiniertes Repository
 
-Nach Veröffentlichung kann die Repository-URL in HACS als benutzerdefiniertes
-Repository vom Typ **Integration** hinzugefügt werden. Anschließend Cisco Popup
-herunterladen, Home Assistant neu starten und die Integration wie oben einrichten.
+1. In HACS unter **Benutzerdefinierte Repositories** die URL
+   `https://github.com/philipphunger/cisco-popup` vom Typ **Integration** hinzufügen.
+2. **Cisco Popup** herunterladen und Home Assistant neu starten.
+3. Unter **Einstellungen → Geräte & Dienste → Integration hinzufügen → Cisco Popup**
+   die Telefon-IP und Zugangsdaten eintragen.
+4. Die Aktion `cisco_popup.send_message` in einer Automation verwenden.
+
 Das Projekt ist nicht als HACS-Standardrepository gelistet oder zertifiziert.
 
 ## Verwendung
@@ -85,8 +92,9 @@ python -m unittest discover -s tests -v
 ```
 
 Die Protokolltests verwenden simulierte Telefonantworten. Sie testen XML-Escaping,
-Formularversand, Antwortvalidierung und Zeitüberschreitungen. Sie ersetzen keinen
-vollständigen Home-Assistant-Integrationstest.
+Formularversand, Antwortvalidierung und Zeitüberschreitungen. Ergänzend wurde der
+reale Installations- und Versandweg unter Home Assistant 2026.10.4 erfolgreich
+geprüft. Automatische Protokolltests decken weiterhin simulierte Fehlerfälle ab.
 
 Vor dem ersten GitHub-Upload siehe [PUBLISHING.md](PUBLISHING.md).
 Beiträge sind willkommen. Bitte Fehler mit Telefonmodell, Firmware, HA-Version
