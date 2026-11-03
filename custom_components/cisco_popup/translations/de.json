@@ -1,0 +1,38 @@
+{
+  "title": "Cisco Popup",
+  "config": {
+    "step": {
+      "user": {
+        "title": "Set up Cisco phone",
+        "description": "IPv4-Adresse und Zugangsdaten für den XML-Push-Dienst des Telefons eingeben. Die Authentifizierungs-URL muss am Telefon eingerichtet sein.",
+        "data": {
+          "host": "Phone IPv4 address",
+          "username": "Username",
+          "password": "Password"
+        }
+      }
+    },
+    "error": {
+      "invalid_host": "Enter a valid IPv4 address."
+    },
+    "abort": {
+      "single_instance_allowed": "Only one phone can be configured."
+    }
+  },
+  "services": {
+    "send_message": {
+      "name": "Send popup",
+      "description": "Display a text popup on the configured Cisco phone.",
+      "fields": {
+        "title": {
+          "name": "Title",
+          "description": "Message heading."
+        },
+        "message": {
+          "name": "Message",
+          "description": "Text displayed on the phone."
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,18 @@
+send_message:
+  name: Popup senden
+  description: Zeigt eine Textnachricht direkt auf dem eingerichteten Cisco-Telefon an.
+  fields:
+    message:
+      name: Nachricht
+      description: Text auf dem Telefonbildschirm.
+      required: true
+      example: Die Waschmaschine ist fertig.
+      selector:
+        text:
+          multiline: true
+    title:
+      name: Titel
+      default: Home Assistant
+      example: Haushalt
+      selector:
+        text:
